@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPA/CGPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <div class="container">
+        <img src="bitm-logo-new.png" alt="Logo" class="logo">
+        <p>This is a student-made website to calculate Semester SGPA/CGPA only for students of BITM </p>
+        <div class="buttons">
+            <button class="button" onclick="showForm('sgpa')">Calculate SGPA</button>
+            <button class="button" onclick="showForm('cgpa')">Calculate CGPA</button>
+        </div>
+        <div id="sgpaForm" class="form-section">
+            <form id="sgpaCalcForm">
+                <p>Enter all subjects & Labs Credits and Marks</p>
+                <!-- Repeat this block for all subjects -->
+                <div class="input-container">
+                    <label for="subject1-credits">Sub1: Credits</label>
+                    <input type="number" id="subject1-credits" name="subject1-credits" min="0" max="5" required>
+                    <label for="subject1-marks">Marks</label>
+                    <input type="number" id="subject1-marks" name="subject1-marks" min="0" max="100" required>
+                </div><br><br>
+                <!-- Repeat this block for all subjects -->
+                <div class="input-container">
+                    <label for="subject2-credits">Sub2: Credits</label>
+                    <input type="number" id="subject2-credits" name="subject2-credits" min="0" max="5" required>
+                    <label for="subject2-marks">Marks</label>
+                    <input type="number" id="subject2-marks" name="subject2-marks" min="0" max="100" required>
+                </div><br><br>
+                <!-- Add more subject input fields as needed -->
+                <div class="input-container">
+                    <label for="subject3-credits">Sub3: Credits</label>
+                    <input type="number" id="subject3-credits" name="subject3-credits" min="0" max="5">
+                    <label for="subject3-marks">Marks</label>
+                    <input type="number" id="subject3-marks" name="subject3-marks" min="0" max="100">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="subject4-credits">Sub4: Credits</label>
+                    <input type="number" id="subject4-credits" name="subject4-credits" min="0" max="5">
+                    <label for="subject4-marks">Marks</label>
+                    <input type="number" id="subject4-marks" name="subject4-marks" min="0" max="100">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="subject5-credits">Sub5: Credits</label>
+                    <input type="number" id="subject5-credits" name="subject5-credits" min="0" max="5">
+                    <label for="subject5-marks">Marks</label>
+                    <input type="number" id="subject5-marks" name="subject5-marks" min="0" max="100">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="subject6-credits">Sub6: Credits</label>
+                    <input type="number" id="subject6-credits" name="subject6-credits" min="0" max="5">
+                    <label for="subject6-marks">Marks</label>
+                    <input type="number" id="subject6-marks" name="subject6-marks" min="0" max="100">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="subject7-credits">Sub7: Credits</label>
+                    <input type="number" id="subject7-credits" name="subject7-credits" min="0" max="5">
+                    <label for="subject7-marks">Marks</label>
+                    <input type="number" id="subject7-marks" name="subject7-marks" min="0" max="100">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="subject8-credits">Sub8: Credits</label>
+                    <input type="number" id="subject8-credits" name="subject8-credits" min="0" max="5">
+                    <label for="subject8-marks">Marks</label>
+                    <input type="number" id="subject8-marks" name="subject8-marks" min="0" max="100">
+                </div><br><br>
+                
+                <button type="button" onclick="calculateSGPA()" class="submit-button">Submit</button>
+            </form>
+        </div>
+
+        <div id="cgpaForm" class="form-section">
+            <p>Enter all known SGPA of Each Semester</p>
+            <form id="cgpaCalcForm">
+                <!-- Repeat this block for all semesters -->
+                <div class="input-container">
+                    <label for="sem1-sgpa">Enter Semester 1 SGPA:</label>
+                    <input type="number" id="sem1-sgpa" name="sem1-sgpa" min="0" max="10">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="sem2-sgpa">Enter Semester 2 SGPA:</label>
+                    <input type="number" id="sem2-sgpa" name="sem2-sgpa" min="0" max="10">
+                </div><br><br>
+                <div class="input-container">
+                    <label for="sem3-sgpa">Enter Semester 3 SGPA:</label>
+                    <input type="number" id="sem3-sgpa" name="sem3-sgpa" min="0" max="10">
+                </div><br><br>
+        
+                <div class="input-container">
+                    <label for="sem4-sgpa">Enter Semester 4 SGPA:</label>
+                    <input type="number" id="sem4-sgpa" name="sem4-sgpa" min="0" max="10">
+                </div><br><br>
+        
+                <div class="input-container">
+                    <label for="sem5-sgpa">Enter Semester 5 SGPA:</label>
+                    <input type="number" id="sem5-sgpa" name="sem5-sgpa" min="0" max="10">
+                </div><br><br>
+        
+                <div class="input-container">
+                    <label for="sem6-sgpa">Enter Semester 6 SGPA:</label>
+                    <input type="number" id="sem6-sgpa" name="sem6-sgpa" min="0" max="10">
+                </div><br><br>
+        
+                <div class="input-container">
+                    <label for="sem7-sgpa">Enter Semester 7 SGPA:</label>
+                    <input type="number" id="sem7-sgpa" name="sem7-sgpa" min="0" max="10">
+                </div><br><br>
+        
+                <div class="input-container">
+                    <label for="sem8-sgpa">Enter Semester 8 SGPA:</label>
+                    <input type="number" id="sem8-sgpa" name="sem8-sgpa" min="0" max="10">
+                </div><br><br>
+
+                <!-- Add more semester input fields as needed -->
+                <button type="button" onclick="calculateCGPA()" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Your SGPA is:</h2>
+            <p id="sgpaResult"></p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal2">
+        <div class="modal-content2">
+            <span class="close" onclick="closeModal2()">&times;</span>
+            <h2>Your CGPA is:</h2>
+            <p id="cgpaResult"></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>To know more about college</p>
+        <a href="https://bitm.edu.in/"><img src="bitm-logo-new.png" alt="College Logo"></a>
+    </footer>
+</body>
+</html>
